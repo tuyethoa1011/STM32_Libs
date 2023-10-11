@@ -31,9 +31,6 @@ __weak void button_longpressing_callback_500ms(Button_Typedef *ButtonX)
 
 }
 
-////them cac ham con lai lien quan den xu ly nut bam vao
-////>= 500 ms < 500ms
-
 __weak void button_handle(Button_Typedef *ButtonX)
 {
 	uint8_t state =  HAL_GPIO_ReadPin(ButtonX->GPIOx, ButtonX->GPIO_Pin); //get button state
@@ -84,7 +81,6 @@ __weak void button_handle(Button_Typedef *ButtonX)
 }
 
 //tong cong co bao nhieu ham callback: press_callback, release callback, longpressing, shortpressing
-
 
 void button_Init(Button_Typedef *ButtonX,GPIO_TypeDef *GPIOx,uint16_t GPIO_Pin)
 {
