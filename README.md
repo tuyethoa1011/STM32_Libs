@@ -9,7 +9,7 @@ Ngo Le Tuyet Hoa
 - (Will have more in near future) - I will write if needed when making my projects.
 
 # MCU Support:
-- STM32F103T6C8.
+- STM32F103T8C6.
 
 # Coding Guideline:
 - Coming soon...
