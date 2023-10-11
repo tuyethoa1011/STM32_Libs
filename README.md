@@ -15,5 +15,3 @@ Ngo Le Tuyet Hoa
 - Coming soon...
 
 Contact me via email, if you have any concerns: ngltuyethoa1011@gmail.com
-
-<b>Dedicated to BOSCH - Embedded Academy 2023 - Chuyên đề thiết kế hệ thống nhúng 1 - CE437.O11.MTCL</b>
