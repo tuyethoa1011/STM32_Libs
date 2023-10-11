@@ -11,4 +11,4 @@ Ngo Le Tuyet Hoa - Sam
 # MCU Support:
 - STM32F103T6C8.
 
-# Contact me via email, if you have any concerns: ngltuyethoa1011@gmail.com
+Contact me via email, if you have any concerns: ngltuyethoa1011@gmail.com
