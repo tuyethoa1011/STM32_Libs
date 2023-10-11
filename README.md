@@ -2,7 +2,7 @@
 STM32 library support for developing STM32 applications
 
 # Author
-Ngo Le Tuyet Hoa - Sam
+Ngo Le Tuyet Hoa
 
 # Library Included:
 - Button (Example Project Usage: https://github.com/KhanhEK2846/Led_Effect_STM32)
