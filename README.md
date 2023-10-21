@@ -15,8 +15,8 @@ Ngo Le Tuyet Hoa
 - Coming soon...
 
 # Dependencies:
-- Debug module
-  1. Method #1 (ESP32-S2 communicate with STM32 through UART).
-  2. Method #2 Using Debugger STM-Link JTAG through IDE (Highly recommend).
+- Debug
+  1. <b>Method #1</b> (ESP32-S2 communicate with STM32 through UART [Debug module in folder "uart_esp_debug_module" below]).
+  2. <b>Method #2</b> Using Debugger STM-Link JTAG through IDE (Highly recommend).
 
 Contact me via email, if you have any concerns: ngltuyethoa1011@gmail.com
