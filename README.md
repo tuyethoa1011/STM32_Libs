@@ -14,4 +14,7 @@ Ngo Le Tuyet Hoa
 # Coding Guideline:
 - Coming soon...
 
+# Dependencies:
+- Debug module (ESP32-S2 communicate with STM32 through UART)
+
 Contact me via email, if you have any concerns: ngltuyethoa1011@gmail.com
