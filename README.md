@@ -6,7 +6,6 @@ Ngo Le Tuyet Hoa
 
 # Library Included:
 - Button (Example Project Usage: https://github.com/KhanhEK2846/Led_Effect_STM32)
-- (Will have more in near future) - I will write if needed when making my projects.
 
 # MCU Support:
 - STM32F103T8C6.
