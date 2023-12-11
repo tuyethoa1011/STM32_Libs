@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "stdio.h"
+#include "stdint.h"
 #include "string.h"
 
 #include "esp_system.h"
@@ -37,7 +37,9 @@
 
 static const int RX_BUF_SIZE = 1024;
 
-char Rx_Buffer[100];
+char Rx_Buffer1[200]; //Buffer for original value
+char Rx_Buffer2[100]; //Buffer for CAN value
+
 
 //----- I2C LCD essential function -----
 /**
@@ -73,27 +75,63 @@ void uart_debug_init(void) {
     uart_set_pin(UART_NUM_2, TXD_PIN, RXD_PIN, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 }
 
+
+void uint8StringToHex(const uint8_t* input, size_t length, char* hexString) {
+    for (size_t i = 0; i < length; ++i) {
+        sprintf(hexString + i * 2, "%02x", input[i]);
+    }
+}
+
+void concatenate_string(char* s, char* s1)
+{
+    int i;
+ 
+    int j = strlen(s);
+ 
+    for (i = 0; s1[i] != '\0'; i++) {
+        s[i + j] = s1[i];
+    }
+ 
+    s[i + j] = '\0';
+ 
+    return;
+}
+
 static void rx_task(void *arg)
 {
     static const char *RX_TASK_TAG = "RX_TASK";
     esp_log_level_set(RX_TASK_TAG, ESP_LOG_INFO);
     uint8_t* data = (uint8_t*) malloc(RX_BUF_SIZE+1);
-    while (1) {
-        const int rxBytes = uart_read_bytes(UART_NUM_2, data, RX_BUF_SIZE, 500 / portTICK_RATE_MS);
+    while (1) {   
+        const int rxBytes = uart_read_bytes(UART_NUM_2, data, RX_BUF_SIZE, 500/ portTICK_RATE_MS);
         if (rxBytes > 0) {
             data[rxBytes] = 0;
             ESP_LOGI(RX_TASK_TAG, "Read %d bytes: '%s'", rxBytes, data);  
 
-            memset(Rx_Buffer,0,sizeof(Rx_Buffer)); //clear buffer before write
-	        sprintf((char*)Rx_Buffer,"%s",data);
+             // Allocate space for the hex string (twice the length of the original string + 1 for the null terminator)
+            char hexRepresentation[8 * 2 + 1];
 
+            memset(Rx_Buffer1,0,sizeof(Rx_Buffer1)); //clear buffer1 before write
+            memset(hexRepresentation,0,sizeof(hexRepresentation)); //clear buffer before write
+            memset(Rx_Buffer2,0,sizeof(Rx_Buffer2)); //clear buffer before write
+
+            sprintf((char*)Rx_Buffer1,"UART: \n%s\n",data);
+
+            // Convert the uint8_t string to hex
+            uint8StringToHex(data, 8, hexRepresentation);
+
+            sprintf((char*)Rx_Buffer2,"CAN: \n%s\n",hexRepresentation);
+
+            concatenate_string(Rx_Buffer1,Rx_Buffer2);
+            
             task_ssd1306_display_clear(I2C_MASTER_NUM);      
            
-            task_ssd1306_display_text(Rx_Buffer,I2C_MASTER_NUM);
+            task_ssd1306_display_text(Rx_Buffer1,I2C_MASTER_NUM);
         }
     }
     free(data);
 }
+
 
 void app_main(void)
 {   
