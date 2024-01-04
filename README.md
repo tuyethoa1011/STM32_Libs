@@ -6,8 +6,6 @@ Ngo Le Tuyet Hoa
 
 # Library Included:
 - Button (Example Project Usage: https://github.com/KhanhEK2846/Led_Effect_STM32)
-- LiDar Sensor (VL53L1) - Comming soon..
-- DC Motor Control (BTS7960) - Comming soon..
 # MCU Support:
 - STM32F103T8C6.
 
