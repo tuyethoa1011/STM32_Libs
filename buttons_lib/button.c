@@ -41,7 +41,6 @@ __weak void button_longpressing_callback_500ms(Button_Typedef *ButtonX)
 void button_handle(Button_Typedef *ButtonX)
 {
 	uint8_t state =  HAL_GPIO_ReadPin(ButtonX->GPIOx, ButtonX->GPIO_Pin); //get button state
-	//cau hoi dat ra la bay gio lam sao de xac dinh la co 2 nut bay gio
 	//---- Xu ly loc nhieu ----
 	if(state != ButtonX->button_filter) //trang thai
 	{
