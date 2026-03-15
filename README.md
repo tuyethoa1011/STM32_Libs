@@ -8,10 +8,7 @@ Ngo Le Tuyet Hoa
 - Button (Example Project Usage: https://github.com/KhanhEK2846/Led_Effect_STM32)
 # MCU Support:
 - STM32F103T8C6.
-
-# Coding Guideline:
-- Coming soon...
-
+  
 # Dependencies:
 - Debug
   1. <b>Method #1</b> (ESP32-S2 communicate with STM32 through UART [Debug module in folder <b><i>"uart_esp_debug_module"</i></b> below])
